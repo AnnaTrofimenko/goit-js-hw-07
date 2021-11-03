@@ -1,13 +1,12 @@
-let input = document.querySelector('#name-input')
-let nameLabl = document.querySelector('#name-output')
+let input = document.querySelector("#name-input");
+let nameLabl = document.querySelector("#name-output");
 
-input.addEventListener('input', onInputChange)
+input.addEventListener("input", onInputChange);
 
 function onInputChange(event) {
-    if (input.value === '') {
-        nameLabl.textContent = 'незнакомец';
-    } else {
-        nameLabl.textContent = event.currentTarget.value;
-    }
+  if (input.value === "") {
+    nameLabl.textContent = "незнакомец";
+  } else {
+    nameLabl.textContent = event.currentTarget.value;
+  }
 }
-
