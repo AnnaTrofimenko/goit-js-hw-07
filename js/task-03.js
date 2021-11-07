@@ -14,16 +14,16 @@ const images = [
 ];
 
 const galleryContainerEl = document.querySelector("#gallery");
+const galleryCard = makeGallery(images);
+galleryContainerEl.insertAdjacentHTML("beforeend", galleryCard);
 
-const makeGallery = (options) => {
-  return options.map(({ url, alt }) => {
-    const listEl = document.createElement("li");
-    const imagEl = document.createElement("img");
-    imagEl.src = `${url}`;
-    imagEl.alt = `${alt}`;
-    listEl.append(imagEl);
-    return listEl;
-  });
-};
-const elements = makeGallery(images);
-galleryContainerEl.append(...elements);
+function makeGallery(images) {
+  return images
+    .map(({ url, alt }) => {
+      return `
+    <li class="gallery-list">
+     <img class="gallery-list_picture" src="${url}" alt="${alt}">
+    </li>`;
+    })
+    .join("");
+}
